@@ -13,24 +13,19 @@ The [first lab assignment](https://github.com/hazrulakmal/deep-learning/tree/mai
 # Lab 2: Label Errors
 
 [This lab assignment]() guides you through writing your own implementation of
-automatic label error identification using Confident Learning, the technique
-taught in [today’s lecture][lec-2].
+automatic label error identification using Confident Learning, the technique taught in today’s lecture.
 
-[Notes-Lab 2]()
-[lec-2]: https://dcai.csail.mit.edu/lectures/label-errors/
+[lec-2](https://dcai.csail.mit.edu/lectures/label-errors/)
 
 ## Lab 3: Dataset Creation and Curation
 
 [This lab assignment]() is to analyze an already collected dataset labeled by multiple annotators.
 
-[Notes-Lab 3]()
-[Lec-3]()
+[Lec & Notes-3](https://dcai.csail.mit.edu/lectures/dataset-creation-curation/)
 
 ## Lab 4: Data-centric Evaluation of ML Models
 
 [This lab assignment]() is to try improving the performance of a given
-model solely by improving its training data via some of the various strategies
-covered here.
+model solely by improving its training data via some of the various strategies covered here.
 
-[Notes-Lab 3]()
-[Lec-3]()
+[Lec & Notes-4](https://dcai.csail.mit.edu/lectures/data-centric-evaluation/)
