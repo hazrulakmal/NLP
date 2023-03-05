@@ -15,11 +15,28 @@ The [first lab assignment](https://github.com/hazrulakmal/deep-learning/tree/mai
 [This lab assignment]() guides you through writing your own implementation of
 automatic label error identification using Confident Learning, the technique taught in today’s lecture.
 
+
 [lec-2](https://dcai.csail.mit.edu/lectures/label-errors/)
 
 ## Lab 3: Dataset Creation and Curation
 
 [This lab assignment]() is to analyze an already collected dataset labeled by multiple annotators.
+
+How do we measure the correctness of a label ? by knowing 
+1. A **consensus label** for each example that aggregates the individual annotations.
+2. A **quality score for each consensus label** which measures our confidence that this label is correct.
+    - Aggrement rate for each sample 
+3. A **quality score for each annotator** which estimates the overall correctness of their labels.
+    - Assume that the consensus label is correct, measure the accuracy of the annotator (aggrement rate compared to the rest of the annotators)
+
+Relying on consesus label alone may have its own drawbacks:
+1. Resolving ties is ambiguous in majority vote.
+2. A bad annotator and good annotator have equal impact on the estimates.
+
+A technique like CROADLAB (Classifier Refinement Of croWDsourced LABels) is meant to take those two reasons into account when deciding the true label. CROWDLAB estimates are based on the intuition that we should rely on the classifier’s prediction more for examples that are labeled by few annotators but less for examples labeled by many annotators (with many annotations, simple agreement already provides a good confidence measure). If we have trained a good classifier, we should rely on it more heavily but less so if its predictions appear less trustworthy. 
+
+Caveats:
+1. Since CROWDLAB partly relies on the classifier to break the ties (annotator's quality is also considered), one may want to produce a good classifier first as the quality of the technique relies havily on how good you classifier is in the first place. A bad classifier may end up choosing the wrong labels. 
 
 [Lec & Notes-3](https://dcai.csail.mit.edu/lectures/dataset-creation-curation/)
 
@@ -27,5 +44,10 @@ automatic label error identification using Confident Learning, the technique tau
 
 [This lab assignment]() is to try improving the performance of a given
 model solely by improving its training data via some of the various strategies covered here.
+
+1. Identifying Influencial points(outliers aka OOD samples) that may degrade model performance
+2. Identifying `dificult to predict` classes (usually the minority class, classes that are hard to decompose (likely similar))
+3. Evaluation/Test samples are representative of the population and are correctly labelled (refer label erros & data curation). 
+4. Not restricting to a single metrics (may not tell about the performance for different classes)
 
 [Lec & Notes-4](https://dcai.csail.mit.edu/lectures/data-centric-evaluation/)
