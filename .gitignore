@@ -1,1 +1,4 @@
 nlp/sentiment_analysis/data
+.ipynb_checkpoints
+*__pycache__
+dl-fundamentals/unit_5/data
