@@ -1,3 +1,14 @@
+#why logging?
+#1. Monitor training process
+#2. Debugging Model
+#3. Improve Model
+#4. Keep records of your experiments so you can come back next time without having to run the same experiment again
+
+#Things you want to capture
+#1. Training Loss (going downwards that shows model is learning)
+#2. Model Performance training and validation metrics
+#3. Hyperparameters
+
 import lightning as L
 import torch
 from shared_utilities import LightningModel, MNISTDataModule, PyTorchMLP
@@ -18,7 +29,12 @@ if __name__ == "__main__":
     lightning_model = LightningModel(model=pytorch_model, learning_rate=0.05)
 
     trainer = L.Trainer(
-        max_epochs=10, accelerator="cpu", devices="auto", deterministic=True
+        max_epochs=10,
+        accelerator="cpu", 
+        devices="auto", 
+        deterministic=True,
+        default_root_dir= "./logger"
+
     )
 
     # NEW !!!
@@ -34,3 +50,5 @@ if __name__ == "__main__":
         f" | Val Acc {val_acc*100:.2f}%"
         f" | Test Acc {test_acc*100:.2f}%"
     )
+
+#using tensorboard to visualize the logs on CML tensorboard --logdir logger

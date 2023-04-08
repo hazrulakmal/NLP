@@ -76,10 +76,7 @@ class LightningModel(L.LightningModule):
         optimizer = torch.optim.SGD(self.parameters(), lr=self.learning_rate)
         return optimizer
 
-
 # NEW !!!
-
-
 class MNISTDataModule(L.LightningDataModule):
     def __init__(self, data_dir="./mnist", batch_size=64):
         super().__init__()
